@@ -70,6 +70,28 @@
       "matchDatasources":["go"],
       "matchUpdateTypes": ["digest"],
       "enabled": false
+    },
+    {
+      "groupName": "all patch dependencies",
+      "groupSlug": "patch-upgrades",
+      "matchPackageNames": ["*"],
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    },
+    {
+      "matchPackageNames": [
+        "k8s.io/**",
+        "sigs.k8s.io/**",
+        "github.com/kubernetes/**",
+        "kubernetes/**"
+      ],
+      "groupName": "kubernetes"
+    },
+    {
+      "matchBaseBranches": ["release-*", "alauda-*"],
+      "extends":["security:only-security-updates"],
+      "automerge": true
     }
   ],
   "dependencyDashboardOSVVulnerabilitySummary": "all",
