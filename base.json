@@ -57,8 +57,10 @@
     {
       "matchDatasources":["go"],
       "matchUpdateTypes": ["minor"],
+      "groupName": "all golang minor dependencies",
+      "groupSlug": "go-minor-upgrades",
       "enabled": true,
-       "automerge": false
+      "automerge": false
     },
     {
       "matchDatasources":["go"],
