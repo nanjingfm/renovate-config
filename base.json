@@ -17,14 +17,14 @@
       "enabled": true
     },
     {
-      "matchDatasources":["maven"],
       "matchUpdateTypes": ["major", "minor"],
-      "enabled": false
+      "enabled": false,
+      "automerge": false
     },
     {
-      "matchDatasources":["docker"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
+      "matchUpdateTypes": ["patch"],
+      "enabled": true,
+      "automerge": true
     },
     {
       "matchDatasources":["docker"],
@@ -34,25 +34,9 @@
     },
     {
       "matchDatasources":["github-releases"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
-    },
-    {
-      "matchDatasources":["github-releases"],
       "matchUpdateTypes": ["minor"],
       "enabled": true,
       "automerge": false
-    },
-    {
-      "matchDatasources":["github-releases"],
-      "matchUpdateTypes": ["patch"],
-      "enabled": true,
-      "automerge": true
-    },
-    {
-      "matchDatasources":["go"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
     },
     {
       "matchDatasources":["go"],
@@ -64,7 +48,13 @@
     },
     {
       "matchDatasources":["go"],
-      "matchUpdateTypes": ["patch"],
+      "matchPackageNames": [
+        "golang.org/x/**",
+        "go"
+      ],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "golang official packages",
+      "groupSlug": "go-official-packages",
       "enabled": true,
       "automerge": true
     },
