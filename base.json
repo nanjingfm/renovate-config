@@ -47,12 +47,6 @@
     },
     {
       "matchDatasources":["go"],
-      "matchUpdateTypes": ["minor"],
-      "enabled": true,
-      "automerge": false
-    },
-    {
-      "matchDatasources":["go"],
       "matchPackageNames": [
         "golang.org/x/**",
         "go"
@@ -87,12 +81,6 @@
       "matchUpdateTypes": [
         "patch"
       ]
-    },
-    {
-      "matchDatasources":["go"],
-      "matchUpdateTypes": ["minor"],
-      "groupName": "all golang minor dependencies",
-      "groupSlug": "go-minor-upgrades"
     },
     {
       "matchDatasources":["go"],
