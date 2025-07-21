@@ -48,8 +48,6 @@
     {
       "matchDatasources":["go"],
       "matchUpdateTypes": ["minor"],
-      "groupName": "all golang minor dependencies",
-      "groupSlug": "go-minor-upgrades",
       "enabled": true,
       "automerge": false
     },
@@ -76,10 +74,32 @@
     {
       "matchDatasources":["go"],
       "matchPackageNames": [
+        "go"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": true,
+      "automerge": true
+    },
+    {
+      "groupName": "all patch dependencies",
+      "groupSlug": "patch-upgrades",
+      "matchPackageNames": ["*"],
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    },
+    {
+      "matchDatasources":["go"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all golang minor dependencies",
+      "groupSlug": "go-minor-upgrades"
+    },
+    {
+      "matchDatasources":["go"],
+      "matchPackageNames": [
         "golang.org/x/**",
         "go"
       ],
-      "matchUpdateTypes": ["minor"],
       "groupName": "golang official packages",
       "groupSlug": "go-official-packages"
     },
@@ -91,14 +111,6 @@
         "kubernetes/**"
       ],
       "groupName": "kubernetes"
-    },
-    {
-      "groupName": "all patch dependencies",
-      "groupSlug": "patch-upgrades",
-      "matchPackageNames": ["*"],
-      "matchUpdateTypes": [
-        "patch"
-      ]
     }
   ],
   "dependencyDashboardOSVVulnerabilitySummary": "all",
