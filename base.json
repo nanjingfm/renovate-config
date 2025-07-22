@@ -21,7 +21,7 @@
       "automerge": true
     },
     {
-      "matchDatasources":["maven", "docker", "github-releases", "go"],
+      "matchDatasources":["maven", "docker", "github-releases", "go", "golang-version"],
       "enabled": true
     },
     {
