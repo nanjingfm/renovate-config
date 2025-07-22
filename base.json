@@ -68,6 +68,10 @@
     },
     {
       "matchDatasources":["golang-version"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["golang-version"],
       "matchUpdateTypes": ["minor", "patch"],
       "enabled": true,
       "automerge": true
