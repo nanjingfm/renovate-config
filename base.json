@@ -67,10 +67,7 @@
       "automerge": true
     },
     {
-      "matchDatasources":["go"],
-      "matchPackageNames": [
-        "go"
-      ],
+      "matchDatasources":["golang-version"],
       "matchUpdateTypes": ["minor", "patch"],
       "enabled": true,
       "automerge": true
