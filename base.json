@@ -68,6 +68,7 @@
     },
     {
       "matchDatasources":["golang-version"],
+      "rangeStrategy": "bump",
       "enabled": true
     },
     {
