@@ -11,6 +11,13 @@
   "gitIgnoredAuthors": ["alaudabot"],
   "packageRules": [
     {
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": [
+        "AlaudaDevops/tektoncd-cli"
+      ],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-alauda-(?<build>\\d+)$"
+    },
+    {
       "matchPackageNames": ["*"],
       "enabled": false,
       "automerge": false
