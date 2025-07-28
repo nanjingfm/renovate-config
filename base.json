@@ -23,11 +23,6 @@
       "automerge": false
     },
     {
-      "matchManagers": ["git-submodules"],
-      "enabled": true,
-      "automerge": true
-    },
-    {
       "matchDatasources":["maven", "docker", "github-releases", "go", "golang-version"],
       "enabled": true
     },
@@ -71,6 +66,11 @@
     {
       "matchBaseBranches": ["release-*", "alauda-*"],
       "extends":["security:only-security-updates"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "enabled": true,
       "automerge": true
     },
     {
