@@ -74,6 +74,12 @@
       "automerge": true
     },
     {
+      "matchDatasources":["github-releases"],
+      "matchUpdateTypes": ["patch"],
+      "enabled": true,
+      "automerge": true
+    },
+    {
       "matchDatasources":["golang-version"],
       "rangeStrategy": "bump",
       "enabled": true
