@@ -18,6 +18,19 @@
       "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-alauda-(?<build>\\d+)$"
     },
     {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "build-harbor.alauda.cn/ops/photon",
+        "build-harbor.alauda.cn/ops/debian",
+        "build-harbor.alauda.cn/ops/distroless-static",
+        "build-harbor.alauda.cn/ops/ubi*",
+        "build-harbor.alauda.cn/ops/alpine",
+        "build-harbor.alauda.cn/ops/centos",
+        "build-harbor.alauda.cn/ops/ubuntu"
+      ],
+       "versioning": "regex:^v?(?<major>\\d+)(?:\\.(?<minor>\\d+))?(?:\\.(?<patch>\\d+))?-alauda-(?<build>\\d+)$"
+    },
+    {
       "matchPackageNames": ["*"],
       "enabled": false,
       "automerge": false
