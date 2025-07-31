@@ -94,9 +94,18 @@
     },
     {
       "matchDatasources":["github-releases"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["github-releases"],
       "matchUpdateTypes": ["patch"],
       "enabled": true,
       "automerge": true
+    },
+    {
+      "matchDatasources":["github-releases"],
+      "matchUpdateTypes": ["minor", "major"],
+      "enabled": false
     },
     {
       "matchDatasources":["golang-version"],
