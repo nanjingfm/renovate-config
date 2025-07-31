@@ -146,7 +146,7 @@
         "/^\\.(tekton|builds?)\\/.*\\.ya?ml$/"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?:\\s+(?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?:\\s+versioning=(?<versioning>[^\\s]+?))?(?:\\s+extractVersion=(?<extractVersion>[^\\s]+?))?(?:\\s+registryUrl=(?<registryUrl>[^\\s]+?))?\\s*\\n\\s*default:\\s*[\"']?(?<currentValue>[0-9a-zA-Z._-]+)[\"']?"
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?:\\s+(?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?:\\s+versioning=(?<versioning>[^\\s]+?))?(?:\\s+extractVersion=(?<extractVersion>[^\\s]+?))?(?:\\s+registryUrl=(?<registryUrl>[^\\s]+?))?\\s*\\n.*[:=]\\s*[\"']?(?<currentValue>[0-9a-zA-Z._-]+)[\"']?"
       ],
       "description": "Update images in Tekton pipelines and build scripts. For `build` and `tekton` files, add `# renovate: datasource=docker` comment above each image entry."
     },
