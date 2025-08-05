@@ -19,6 +19,8 @@
         "AlaudaDevops/git-clone",
         "AlaudaDevops/syft",
         "AlaudaDevops/cosign",
+        "AlaudaDevops/yq",
+        "AlaudaDevops/golangci-lint",
         "AlaudaDevops/kubernetes"
       ],
       "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-alauda-(?<build>\\d+)$"
