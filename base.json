@@ -91,6 +91,15 @@
     },
     {
       "matchDatasources":["docker"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["docker"],
+      "matchUpdateTypes": ["minor", "major"],
+      "enabled": false
+    },
+    {
+      "matchDatasources":["docker"],
       "matchUpdateTypes": ["patch", "pin", "pinDigest", "digest"],
       "enabled": true,
       "automerge": true
