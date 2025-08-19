@@ -136,6 +136,20 @@
       "automerge": true
     },
     {
+      "matchDatasources":["custom.harbor-newest-commitid-tags"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["custom.harbor-newest-commitid-tags"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": true,
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
       "groupName": "all patch dependencies",
       "groupSlug": "patch-upgrades",
       "matchPackageNames": ["*"],
@@ -171,6 +185,16 @@
   "git-submodules": {
     "enabled": true
   },
+  "customDatasources": {
+    "harbor-newest-commitid-tags": {
+      "defaultRegistryUrlTemplate": "https://build-harbor.alauda.cn/api/v2.0/projects/{{lookup (split packageName '/') 0}}/repositories/{{ replace '/' '%2F' (replace '^[^/]+/' '' packageName) }}/artifacts?page=1&page_size=50&sort=-push_time",
+      "format": "json",
+      "transformTemplates": [
+        "{'releases': $map($distinct($[].tags.( $substringBefore(name, '-') )),function($prefix) { {'version': $map([$filter($[].tags,function($tag) { $substringBefore($tag.name, '-') = $prefix })[0]],function($item) {$item.name})} })}"
+      ],
+      "description": "Request the Harbor API, sort by push time in descending order, remove duplicate tags after stripping the commit id, and return the first tag"
+    }
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -195,6 +219,18 @@
         "# renovate: datasource=docker\\s+[^\\s:]+\\s*:\\s*(?<depName>[^:\\s]+?)(?::(?<currentValue>[^\\s]+?))?\\s*$"
       ],
       "description": "Update `defaultBaseImage` and images in `baseImageOverrides` in ko configuration files. For `baseImageOverrides`, add `# renovate: datasource=docker` comment above each image entry."
+    },
+    {
+      "customType": "regex",
+      "description": "Support automatic update of tags in commitid format",
+      "managerFilePatterns": [
+        "/^config\\/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=harbor-newest-commitid-tags depName=(?<depName>[^\\s]+?)(?:\\s+(?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?:\\s+versioning=(?<versioning>[^\\s]+?))?(?:\\s+extractVersion=(?<extractVersion>[^\\s]+?))?(?:\\s+registryUrl=(?<registryUrl>[^\\s]+?))?\\s*\\n.*[:=]\\s*[\"']?(?<currentValue>[0-9a-zA-Z._-]+)[\"']?"
+      ],
+      "datasourceTemplate": "custom.harbor-newest-commitid-tags",
+      "versioningTemplate": "semver"
     }
   ]
 }
