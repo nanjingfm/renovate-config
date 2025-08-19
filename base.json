@@ -175,7 +175,8 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^\\.(tekton|builds?)\\/.*\\.ya?ml$/"
+        "/^\\.(tekton|builds?)\\/.*\\.ya?ml$/",
+        "/^config\\/.*\\.ya?ml$/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?:\\s+(?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?:\\s+versioning=(?<versioning>[^\\s]+?))?(?:\\s+extractVersion=(?<extractVersion>[^\\s]+?))?(?:\\s+registryUrl=(?<registryUrl>[^\\s]+?))?\\s*\\n.*[:=]\\s*[\"']?(?<currentValue>[0-9a-zA-Z._-]+)[\"']?"
