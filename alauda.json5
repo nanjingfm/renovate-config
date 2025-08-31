@@ -1,0 +1,73 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "customManagers:dockerfileVersions",
+    "github>nanjingfm/renovate-config:core.json5"
+  ],
+  "ignorePaths": [
+    "**/testdata/**",
+    "**/examples/**",
+    "test/**",
+    "testing/**"
+  ],
+  "packageRules": [
+    // 支持 docker 镜像 patch 版本自动更新
+    {
+      "matchDatasources":["docker"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["docker"],
+      "matchUpdateTypes": ["minor", "major"],
+      "enabled": false
+    },
+    {
+      "matchDatasources":["docker"],
+      "matchUpdateTypes": ["patch", "pin", "pinDigest", "digest"],
+      "enabled": true,
+      "automerge": true
+    },
+
+    // 支持 github-releases 和 github-tags 的 patch 版本自动更新
+    {
+      "matchDatasources":["github-releases", "github-tags"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["github-releases", "github-tags"],
+      "matchUpdateTypes": ["patch"],
+      "enabled": true,
+      "automerge": true
+    },
+    {
+      "matchDatasources":["github-releases", "github-tags"],
+      "matchUpdateTypes": ["minor", "major"],
+      "enabled": false
+    },
+
+    // 允许 golang 版本自动更新
+    {
+      "matchDatasources":["golang-version"],
+      "enabled": true,
+      "automerge": true
+    },
+    {
+      "matchDatasources":["golang-version"],
+      "rangeStrategy": "bump",
+      "enabled": true
+    },
+
+    // 支持 harbor 特殊版本号自动更新，如： v1.2.3-g78e9a8e
+    {
+      "matchDatasources":["custom.harbor-newest-commitid-tags"],
+      "enabled": true
+    },
+    {
+      "matchDatasources":["custom.harbor-newest-commitid-tags"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": true,
+      "automerge": true
+    }
+  ]
+}
